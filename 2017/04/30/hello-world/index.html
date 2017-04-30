@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>node.js | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;–more–&amp;gt; node是异步操作，基于回调函数js中哪些是异步的 定时器 事件触发 ajax 回调函数  阻塞非阻塞针对的内核，厨师，如果厨师不释放掉服务员，主线程不可能异步  非阻塞是异步的前置条件   主线是单线程的，内核是多线程的  单线程&amp;amp;多线程 一个个发短信 群发短信多线程   进程包括线程，在node中一个进程只能包括一个线程，node可以开多个线程，开多个进程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/hello-world/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;lt;–more–&amp;gt; node是异步操作，基于回调函数js中哪些是异步的 定时器 事件触发 ajax 回调函数  阻塞非阻塞针对的内核，厨师，如果厨师不释放掉服务员，主线程不可能异步  非阻塞是异步的前置条件   主线是单线程的，内核是多线程的  单线程&amp;amp;多线程 一个个发短信 群发短信多线程   进程包括线程，在node中一个进程只能包括一个线程，node可以开多个线程，开多个进程">
+<meta property="og:updated_time" content="2017-04-30T09:48:25.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node.js">
+<meta name="twitter:description" content="&amp;lt;–more–&amp;gt; node是异步操作，基于回调函数js中哪些是异步的 定时器 事件触发 ajax 回调函数  阻塞非阻塞针对的内核，厨师，如果厨师不释放掉服务员，主线程不可能异步  非阻塞是异步的前置条件   主线是单线程的，内核是多线程的  单线程&amp;amp;多线程 一个个发短信 群发短信多线程   进程包括线程，在node中一个进程只能包括一个线程，node可以开多个线程，开多个进程">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/30/hello-world/" class="article-date">
+  <time datetime="2017-04-30T09:32:35.998Z" itemprop="datePublished">2017-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      node.js
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&lt;–more–&gt;</p>
+<h2 id="node是异步操作，基于回调函数"><a href="#node是异步操作，基于回调函数" class="headerlink" title="node是异步操作，基于回调函数"></a>node是异步操作，基于回调函数</h2><h2 id="js中哪些是异步的"><a href="#js中哪些是异步的" class="headerlink" title="js中哪些是异步的"></a>js中哪些是异步的</h2><ul>
+<li>定时器</li>
+<li>事件触发</li>
+<li>ajax</li>
+<li>回调函数</li>
+</ul>
+<h2 id="阻塞非阻塞"><a href="#阻塞非阻塞" class="headerlink" title="阻塞非阻塞"></a>阻塞非阻塞</h2><p>针对的内核，厨师，如果厨师不释放掉服务员，主线程不可能异步</p>
+<ul>
+<li>非阻塞是异步的前置条件</li>
+</ul>
+<blockquote>
+<p>主线是单线程的，内核是多线程的</p>
+</blockquote>
+<h2 id="单线程-amp-多线程"><a href="#单线程-amp-多线程" class="headerlink" title="单线程&amp;多线程"></a>单线程&amp;多线程</h2><ul>
+<li>一个个发短信</li>
+<li>群发短信多线程</li>
+</ul>
+<blockquote>
+<p>进程包括线程，在node中一个进程只能包括一个线程，node可以开多个线程，开多个进程（子进程）</p>
+</blockquote>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><ul>
+<li>事件驱动</li>
+</ul>
+<h2 id="global全局对象，window是浏览器的全局对象"><a href="#global全局对象，window是浏览器的全局对象" class="headerlink" title="global全局对象，window是浏览器的全局对象"></a>global全局对象，window是浏览器的全局对象</h2><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><ul>
+<li>npm root -g 可以查看安装到哪里去了</li>
+<li>全局安装 -g 在命令行下使用</li>
+<li><p>nrm 切换源的工具<br>默认下载从官方下载npm,想从国内下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有可用的源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nrm add zf http://172.18.0.188</div><div class="line">nrm del 源的名字</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use zf</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试源的速度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="本地安装-如果切换到淘宝后，以后都是通过淘宝进行安装"><a href="#本地安装-如果切换到淘宝后，以后都是通过淘宝进行安装" class="headerlink" title="本地安装(如果切换到淘宝后，以后都是通过淘宝进行安装)"></a>本地安装(如果切换到淘宝后，以后都是通过淘宝进行安装)</h3><ul>
+<li>本地安装主要在项目中使用</li>
+<li>如果没有初始化package.json可能会安装上一node_modules目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm init -y</div><div class="line">npm install jquery --save </div><div class="line">npm uninstall jquery --save 卸载</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h4><ul>
+<li>上线需要开发时也需要 mime<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--save可以简写 -S</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="开发依赖"><a href="#开发依赖" class="headerlink" title="开发依赖"></a>开发依赖</h4><ul>
+<li>上线不需要，开发时需要 webpack gulp<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--save-dev 可以简写 -D</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><ul>
+<li>当我们文件上传到github上，会node_module文件忽略掉，别人下载代码后需要执行npm install 将所有依赖进行安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="安装指定版本"><a href="#安装指定版本" class="headerlink" title="安装指定版本"></a>安装指定版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm info jquery 查看版本</div><div class="line">npm install jquery@2.2.2</div></pre></td></tr></table></figure>
+<blockquote>
+<p>本地安装会默认安到node_modules中，package.json可以记住安装过的文件。</p>
+</blockquote>
+<h2 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h2><ul>
+<li><p>也是安装模块的方式,和npm一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install yarn -g</div></pre></td></tr></table></figure>
+</li>
+<li><p>初始化package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn init -y</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装模块<br>如果是项目依赖则不用标注，如果是开发依赖需要标注(-dev)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add jquery</div><div class="line">yarn add gulp -dev</div><div class="line">yarn remove gulp -dev</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h2><p>内置的，node自带的模块</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>文件模块</li>
+<li>内置模块</li>
+<li>第三方模块</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/30/hello-world/" data-id="cj24i6jh50000dgufeaj9ghnf" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/30/1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/30/2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/30/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/30/hello-world/">node.js</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
